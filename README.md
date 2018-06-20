@@ -1,67 +1,50 @@
 # Intro to Algorithms
 
 ## Purpose
-The main goal of this guide is to get developers started with algorithms.  This guide will serve as a roadmap for developers who do not have not taken an introductory algorithms course or need a refresher on basic algorithm design. 
+The main goal of this guide is to get developers started with algorithms.  
+This guide is a **roadmap** for developers who needs an introductory algorithms course.
 
-*In addition, this guide will also prepare developers for the [Outco program](http://outco.io) and their admissions fundamentals check.*
+**Refresher Courses**: 
 
-## Commitment and Requirements
-This guide can take between **25-100 hours** to complete depending on your exposure to algorithms.  Please allow for ample time to practice up to **2-4 weeks** to allow the concepts to be internalized. It is best to follow through with the recommended structure in the order given. 
-
-**Minimum Requirements**: 
- 
-* Fluency in a programming language (e.g., Java, JavaScript, Python, Ruby, PHP, Objective-C, C++, C)
-* Strong knowledge of looping constructs like `for` and `while` loops.
-* Strong knowledge of control flow `if`, `else`, `and`, `or`
-* Array: lookup, insertion, looping
-* Object (Hashtables): lookup, looping, insertion
-* Language specific built-in methods
-* Mathematics: Algebra (e.g., logarithms, exponentials, primes, powers)
-
-If you are missing some of the minimum requirements, then I recommend taking a refresher course. Here are some suggestions that are pleasant to digest:
-
-* **JavaScript** [Codecademy](https://www.codecademy.com/learn/learn-javascript) Sections 1-4, no need for PRO material
-* **JavaScript** [Eloquent JavaScript](http://eloquentjavascript.net/): Chapters 1-4
-* **Ruby** [Codecademy](https://www.codecademy.com/learn/learn-ruby) Sections 1-5
-* **Python** [Learn Python the Hard Way](https://learnpythonthehardway.org/book/)
-* **Java** [Java Tutorial for Complete Beginners](https://www.udemy.com/java-tutorial/#curriculum)
+*  [Eloquent JavaScript Ch. 1 - 4](http://eloquentjavascript.net/)
+*  [Learn Python the Hard Way](https://learnpythonthehardway.org/book/)
+*  [Java Tutorial for Complete Beginners](https://www.udemy.com/java-tutorial/#curriculum)
 
 
 ## Strategy
 
-The strategy to develop your algorithm skills revolves around a few extremely important concepts that need to be repeated consistently.  They are: 1) acquiring **knowledge**, 2) **applying** concepts, and 3) **testing** one's understand of the concepts.  
+The strategy to develop your algorithm skills revolves around 3 important concepts that need to be repeated consistently.  
+1) Acquiring **knowledge**,   
+2) **Applying** concepts, and 
+3) **Testing** one's understanding of the concepts.  
 
-But there is a structured approach to algorithms that will make your life easier to learn faster.  In math, you have prerequisites that you should take before taking a more advanced class.  These prerequisites are laid out in an organized fashion so you do not get overwhelmed skipping over foundational concepts before moving on.
-
-Same with algorithms and data structures.  There is a structure to the topics that you can learn that will greatly improve your understanding if you progress through the algorithms. Here are the steps I suggest you follow:
-
-1. Learn to evaluate efficiency (complexity) of algorithms
-2. Develop a process for problem solving
-3. Learn basic algorithm patterns
-4. Learn basic data structures
-5. Put into practice
-6. Start easy and progress harder
-7. Track and measure
+There is a structured approach to algorithms that will make your life easier to learn faster.  
+Here are the steps:
+  1. Evaluate efficiency (complexity) of algorithms
+  2. Develop a process for problem solving
+  3. Learn algorithm patterns
+  4. Learn data structures
+  5. Practice
+  6. Start easy and progress harder
+  7. Track and measure
 
 Lets cover each one of those areas step by step.
 
 ## 1. Evaluating Efficiency
 
-Evaluating the efficiency of algorithms is the first step to really developing the ability solve challenging algorithms.  If you cannot measure the efficiency of an algorithm, how can one compare the scalability of one approach to another.
-
-So lets start with time and space complexity. 
+Evaluating the efficiency of algorithms is the first step to developing the ability to solve challenging algorithms. Evaluating efficiency allows one to compare the scalability of one approach to another.
 
 **Time complexity** - measures the amount of computations  
 **Space complexity** - measures the amount of memory
 
-The amount of computations or memory required to solve the algorithm is measured relative to the input size as the input scales up. Remember, for both time and space complexity, we are measuring against the **size of the input**.
+The amount of computations/memory required to solve algorithms is measured relative to the input size as the input scales up. For both time and space complexity, we are measuring against the **size of the input**.
 
-We use **Big-O notation** to measure time and space complexity. Big-O is a mathematical way to gauge the rate in which something grows. Big-O refers to the worse case scenario. That means, if we chose the worse possible input for the algorithm, how long would it take? There is a bunch more technical details on Big-O, how it is accessed in academia vs industry, but for now, we should wait for later to explore this topic more.
+We use **Big-O notation** to measure time and space complexity. Big-O is a mathematical way to gauge the rate in which something grows. Big-O refers to the worst case scenario. That means, if we chose the worse possible input for the algorithm, how long would it take?
 
 Before we dive further into how to analyze for Big-O, lets focus on the input first. 
 
 ### 1a. Determining What is Scaling
-When you are trying to access the time or space complexity of an algorithm, always ask yourself: *what about my input is scaling?*
+When you are trying to access the time or space complexity of an algorithm, always ask yourself: **what about my input is scaling?**
 
 --- 
 
@@ -70,13 +53,13 @@ When you are trying to access the time or space complexity of an algorithm, alwa
 ```javascript
 
 // Take in an integer and print its value 
+// Answer: num is scaling
 function printInteger(num) {
 	console.log(num);
 }
  
 ```
 
-**A:** If your answer was the **value** of ```num``` then you are correct. We would be scaling the value of ```num``` itself.  
 
 ---
 
@@ -86,13 +69,12 @@ Lets try another problem:
 ```javascript
 
 // Print the first item in the array
+// arr.length is scaling
 function printFirst(arr) {
 	console.log(arr[0]);
 }
  
 ```
-
-A: In this case, its the **length of the array**. If you are given an array as input, it usually is the length of the array.
 
 ---
 
@@ -100,14 +82,14 @@ It can get tricky with different types of inputs, here are some of the input typ
 
 | Input 		| Common Factor that is Scaling |
 |---			|---|
-| Integer		| Magnitude of number|
-| String		| Length of String|
-| Array		| Length of Array| 
-| LinkedList	| Number of nodes| 
-| Tree			| Number of nodes| 
-| Hashtable	| Number of key-value pairs| 
+| Int		| Size of number|
+| String		| Length|
+| Array		| Length| 
+| LinkedList	| # of nodes| 
+| Tree			| # of nodes| 
+| Hashtable	| # of key-value pairs| 
+| Graph 		| # of vertices and edges| 
 | Matrix		| Width and height of matrix|
-| Graph 		| Number of vertices and edges| 
 
 *Disclaimer: These are 'common' factors that scale.  Sometimes with particular problems there might be less obvious factors that scale.*
 
@@ -115,21 +97,20 @@ It can get tricky with different types of inputs, here are some of the input typ
 ### 1b. Units of Time and Space
 To help you begin to analyze for complexity you need to get a sense of what a unit of time and a unit of space is.
 
-**One Unit of Time**  
+**Unit of Time**  
 
-* A unit of time can be one arithmetic operation: ```5 + 7```
-* Or printing something: ```console.log('hello')```
-* Or instantiating a new variable: ```let name = 'foo';```
-* Or accessing an item in an Array: ```arr[5]```
-* Or returning something: ```return 'foobar';```
+* Arithmetic operation: ```5 + 7```
+* Printing something: ```console.log('hello')```
+* Instantiating a new variable: ```let name = 'foo';```
+* Accessing an item in an Array: ```arr[5]```
+* Returning something: ```return 'foobar';```
 
-**One Unit of Space**  
+**Unit of Space**  
 
-* A unit of space can be creating a single new variable: ```var i = 1;```
-* Or creating an empty array: ```var list = [];```
-* Or adding a new item to your list: ```list.push('foo');```
-* Or adding a key-value pair into a hashtable: ```obj[foo] = 'bar';```
-
+* Creating a single new variable: ```var i = 1;```
+* Creating an empty array: ```var list = [];```
+* Adding a new item to your list: ```list.push('foo');```
+* Adding a key-value pair into a hashtable: ```obj[foo] = 'bar';```
 
 ### 1c. Analyze Line by Line
 
@@ -145,41 +126,31 @@ Lets start with time complexity for now.
 
 ```javascript
 // print the first and last item in the array
+
 function printFirstLast(arr) {
-	console.log(arr[0]);
-	console.log(arr[arr.length-1]);
+	console.log(arr[0]); // 2 operations 
+	console.log(arr[arr.length-1]); // 4 operations
 }
+
+// Answer
+//    1. length of arr
+//    2. total of 6 operations
 ```
 ---
-**A:**
+```arr[0]``` is an **array access** and ```console.log()``` **prints to the console**, so thats 2 operations. 
 
-1. The length of the input array is scaling
-2. The first ```print``` statement has 2 operations and the second ```print``` statement has has 4 operations. Do you know why?
+```arr.length``` **accesses the length**, ```-1``` **subtracts from the length**, ```arr[0]``` **accesses the index**, and ```console.log()``` **prints to the console**. Thats a total of 4 for the second print statement. 
 
-Here is how we could mark the computations line by line:
-
-```javascript
-// print the first and last item in the array
-function printFirstLast(arr) {
-	console.log(arr[0]); // 2 
-	console.log(arr[arr.length-1]); // 4
-}
-
-// total = 2 + 4 = 6
-```
-
-The first print statement has an array access and then a printing to the console, so thats 2 operations. The second print statement involves: accessing the length, subtracting from the length, accessing the index, and printing to the console. Thats a total of 4 for the second print statement. 
-
-In total there are 6 computations, we would say this is O(1) time complexity. Read the next section to find out why.
+In total there are 6 computations, we would say this is **O(1) time complexity.**
 
 ### 1d. Drop Lower Order Terms and Coefficients
 
-With complexity analysis, we need to do two things after finding the total amount of operations or memory:
+With complexity analysis, we need to do 2 things after finding the total # of operations
 
 1. Drop lower order terms
-2. Drop coefficients in front of the leading term.
+2. Drop coefficients
 
-This is because for Big-O analysis we only care about the largest order of magnitude. As the input size scales extremely large, the lower terms make less of an impact. Furthermore, since the magnitude is what is used for Big-O, we don't include the coefficients in front of the leading term.
+In Big-O analysis we only care about the largest order of magnitude. As the input size scales, the lower terms make less of an impact. Furthermore, since the magnitude is what is used for Big-O, we don't include the coefficients in front of the leading term.
 
 ---
 **Q:** For the previous example, we determined the algorithm has 6 operations, reduce it using the two conditions above.
@@ -191,14 +162,13 @@ This is because for Big-O analysis we only care about the largest order of magni
 So the time complexity for the function above is **O(1) or constant time**. 
 
 ---
-
 What does O(1) time mean? Well it means the amount of operations the algorithm takes to execute as the input scales remains constant. This makes sense, because no matter how large the input array gets, the function ```printFirstLast``` will still take roughly the same time to execute.
 
 Lets get some more practice looking at the following 10 totals and reduce it to the magnitude order for Big-O. You may have to look up some power laws. Also check out [Big-O Cheetsheet](http://bigocheatsheet.com/) if you are unsure how logarithmic terms compare to other terms.
 
 ```
 PROBLEM SET 1:
-Reduce the following to it Big-O magnitude:
+Reduce the following to its Big-O magnitude:
 1) 5 + N
 2) N + N^2
 3) 15N + 13N
@@ -238,15 +208,14 @@ To determine why the operations for a loop has a linear order magnitude. Lets ex
 ```javascript
 // print each item in the array.
 function printAll(arr) {
-											// 1 (initiating i to 0 is an operation)
-											// the loop runs N iterations
-	for(let i = 0; i < arr.length; i++) { 		// 2 operations per break condition check
-		console.log(arr[i]); 					// 2 operations to print
+    // let i = 0 is 1 operation
+	for(let i = 0; i < arr.length; i++) { // 2 operations (i < arr.length, i++) in loop
+		console.log(arr[i]); // 2 operations to print
 	}
 }
 
 // total = 1 + N * (2 + 2) = 4N + 1 
-// reduce down to O(N) or linear time complexity
+// O(N) or Linear Time complexity
 ```
 
 **While Loops** Sometimes loops can be tricky, especially with ```while``` loops. You have to really evaluate the code to see how many times the loops runs and if it is proportional to the input.
